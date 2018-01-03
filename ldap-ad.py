@@ -5,6 +5,12 @@ import re
 import ldap
 import json
 import ConfigParser
+import argparse
+
+parser = argparse.ArgumentParser(description='Script to obtain host inventory from AD')
+parser.add_argument('--list', action='store_true')
+args = parser.parse_args()
+
 class ADAnsibleInventory():
 
     def __init__(self):
