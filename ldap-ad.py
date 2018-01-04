@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 
+import os
 import sys
 import re
 import ldap
@@ -14,8 +15,10 @@ args = parser.parse_args()
 class ADAnsibleInventory():
 
     def __init__(self):
+        directory = os.path.dirname(os.path.abspath(__file__))
+        configfile = directory + '/ldap-ad.ini' 
         config = ConfigParser.ConfigParser()
-        config.read('ldap-ad.ini')
+        config.read(configfile)
         domaindn = config.get('ldap-ad', 'domaindn')
         username = config.get('ldap-ad', 'username')
         password = config.get('ldap-ad', 'password')
