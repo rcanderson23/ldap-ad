@@ -5,8 +5,8 @@ This is written with the purpose of getting an Ansible inventory from an Active 
 
 Dependencies
 ==========
-python3
-ldap3
+* python3
+* ldap3
 
 Installation
 ==========
