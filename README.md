@@ -5,11 +5,15 @@ This is written with the purpose of getting an Ansible inventory from an Active 
 
 Dependencies
 ==========
-python-ldap
+python3
+ldap3
 
 Installation
 ==========
-Copy `ldap-ad.py` and `ldap-ad.ini` into your `/etc/ansible/inventory` folder
+1. Run `pip3 install -r requirements.txt`
+2. Copy `ldap-ad.py` and `ldap-ad.sample.ini` into your `/etc/ansible/inventory` folder
+3. Rename `ldap-ad.sample.ini` to `ldap-ad.ini` and fill in variables
+
 
 Configuration
 ==========
