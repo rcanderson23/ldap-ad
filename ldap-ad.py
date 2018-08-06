@@ -28,7 +28,7 @@ class ADAnsibleInventory():
         ca_file = config.get('ldap-ad', 'ca_file')
         adfilter = "(&(sAMAccountType=805306369))"
         
-        self.inventory = {}
+        self.inventory = { "_meta": {"hostvars":{}}}
         self.ad_connect(ldapuri, username, password, port, ca_file)
         self.get_hosts(basedn,adfilter)
         self.org_hosts(basedn)
