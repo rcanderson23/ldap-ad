@@ -9,7 +9,8 @@ import configparser
 import argparse
 
 parser = argparse.ArgumentParser(description='Script to obtain host inventory from AD')
-parser.add_argument('--list', action='store_true')
+parser.add_argument('--list', action='store_true', help='prints a json of hosts with groups and variables')
+parser.add_argument('--host', help='returns variables of given host')
 args = parser.parse_args()
 
 class ADAnsibleInventory():
@@ -32,7 +33,13 @@ class ADAnsibleInventory():
         self.ad_connect(ldapuri, username, password, port, ca_file)
         self.get_hosts(basedn,adfilter)
         self.org_hosts(basedn)
-        print(json.dumps(self.inventory, indent=2))
+        if args.list:
+            print(json.dumps(self.inventory, indent=2))
+        if args.host is not None:
+            try:
+                print(self.inventory['_meta']['hostvars'][args.host]) 
+            except Exception:
+                print('{}')
         
     def ad_connect(self, ldapuri, username, password, port, ca_file):
         tls_configuration = ldap3.Tls(ca_certs_path=ca_file)
