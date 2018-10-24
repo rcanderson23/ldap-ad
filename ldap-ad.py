@@ -44,7 +44,8 @@ class ADAnsibleInventory():
                 print('{}')
 
     def ad_connect(self, ldapuri, username, password, port, ca_file):
-        tls_configuration = ldap3.Tls(validate=ssl.CERT_NONE)
+        tls_configuration = ldap3.Tls(validate=ssl.CERT_REQUIRED,
+                                      ca_certs_file=ca_file)
         server = ldap3.Server(ldapuri, use_ssl=True, tls=tls_configuration)
         conn = ldap3.Connection(server,
                                 auto_bind=True,
