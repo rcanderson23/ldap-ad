@@ -1,7 +1,8 @@
 ldap-ad
 ==========
 
-This is written with the purpose of getting an Ansible inventory from an Active Directory domain controller via LDAP. 
+This is written with the purpose of getting an Ansible inventory from an Active Directory domain controller via LDAP.<br>
+Uses port 636 and does not validate certs at this time.
 
 Dependencies
 ==========
