@@ -1,2 +1,3 @@
 ldap-ad.ini
-ldap-ca.cer
+*.cer
+*.pem
